@@ -33,7 +33,7 @@ function MovieList() {
                                 <td>
                                     {movie.title}
                                 </td>
-                                <td><Link to={`/movie/${movie.id}`} className="btn btn-primary">Detalle</Link></td>
+                                <td><Link to={`/movies/${movie.id}`} className="btn btn-primary">Detalle</Link></td>
                             </tr>
                         ))}
                     </tbody>

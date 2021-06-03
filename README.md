@@ -29,11 +29,13 @@ source PATH_TO_DB/movies_db.sql
 ### Ejecutar API
 ```
 cd server
+npm i
 npm run test
 ```
 
 ### Ejecutar App react
 ```
 cd client
+npm i
 npm start
 ```
