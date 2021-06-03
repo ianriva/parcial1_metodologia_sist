@@ -133,9 +133,9 @@ const moviesController = {
                 where: { id: movieId }
             })
             .then(() => {
-                return res.redirect('/movies')
+                return res.json({"message":`${movieId} actualizado`})
             })
-            .catch(error => res.send(error))
+            .catch(error => res.json(error))
     },
     delete: function (req, res) {
         let movieId = req.params.id;
@@ -146,14 +146,13 @@ const moviesController = {
             })
             .catch(error => res.send(error))
     },
-    destroy: function (req, res) {
-        let movieId = req.params.id;
-        Movies
-            .destroy({ where: { id: movieId }, force: true }) // force: true es para asegurar que se ejecute la acción
+    destroy: async function (req, res) {
+        let movieId = parseInt(req.params.id);
+        await Movies.destroy({ where: { id: movieId }, force: true }) // force: true es para asegurar que se ejecute la acción
             .then(() => {
-                return res.redirect('/movies')
+                return res.json({"message":`${movieId} destroyed`})
             })
-            .catch(error => res.send(error))
+            .catch(error => res.json(error))
     }
 }
 
